@@ -108,22 +108,22 @@
                         <!-- Primer comentario-->
                         <div class="card mb-4 shadow-sm">
                             <div class="card-body p-4">
-                                <p class="mb-1">😁 Estoy absolutamente encantada con el diseño de mi nuevo logotipo. El equipo de diseño capturó perfectamente la esencia de mi marca y creó algo que realmente me representa. ¡No puedo esperar para mostrarlo al mundo!</p>
-                                <div class="small text-muted text-end">— Nombre de quien lo dice</div>
+                                <p class="mb-1">😁 El trabajo logra transmitir la esencia de cada deporte de manera clara y efectiva. Un trabajo excelente.</p>
+                                <div class="small text-muted text-end">— Maria S.</div>
                             </div>
                         </div>
                         <!-- Segundo comentario-->
                         <div class="card mb-4 shadow-sm">
                             <div class="card-body p-4">
-                                <p class="mb-1">🤯 Hace poco redecoré mi sala de estar con la ayuda de un diseñador de interiores y estoy asombrado por el resultado. Cada detalle, desde la elección de los colores hasta los muebles, es simplemente impresionante. Ahora, mi hogar se siente más acogedor y elegante que nunca.</p>
-                                <div class="small text-muted text-end">— Nombre de quien lo dice</div>
+                                <p class="mb-1">🤯  El picnic fue una idea fresca y emocionante. Una experiencia única y memorable. ¡Una forma muy entretenida de disfrutar de la comida, el baile y la música!</p>
+                                <div class="small text-muted text-end">— Gonzalo L.</div>
                             </div>
                         </div>
                         <!-- Tercer comentario-->
                         <div class="card mb-4 shadow-sm">
                             <div class="card-body p-4">
-                                <p class="mb-1">😌 Mi sitio web ha experimentado un gran aumento de tráfico desde que rediseñamos la página de inicio. Los gráficos y la disposición son modernos y atractivos, y la navegación es mucho más sencilla. Mis clientes han elogiado la nueva apariencia, y mi negocio está prosperando gracias a este diseño brillante.</p>
-                                <div class="small text-muted text-end">— Nombre de quien lo dice</div>
+                                <p class="mb-1">😌 ¡Las faldas que diseñaron para nuestro grupo de baile son absolutamente impresionantes! No solo se ajustan perfectamente a nuestros movimientos, sino que también añaden un toque de elegancia a nuestras actuaciones. Muy buena calidad, y definitivamente hacen que destaquemos en el escenario. ¡Estamos encantadas!</p>
+                                <div class="small text-muted text-end">— Montse B.</div>
                             </div>
                         </div>
                         <!-- Listo, no más comentarios-->
@@ -172,24 +172,11 @@
         <!-- Lo que sigue es JavaScript a secas-->
         <script>
             async function portfolio() {
-                const consulta = await fetch("https://raw.githubusercontent.com/profesorfaco/dno037-2023-1/main/clase-07/datos.json");
+                const consulta = await fetch("https://raw.githubusercontent.com/claurj/dnonm-11/main/trabajos.json");
                 const data = await consulta.json();
                 var donde = document.querySelector("#trabajos");
                 data.forEach(function (t, i) {
-                    donde.innerHTML +=
-                        '<article class="col"><div class="card h-100 shadow-sm ' +
-                        t.soporte +
-                        '"><img src="' +
-                        t.fotos[0] +
-                        '" class="card-img-top"><div class="card-body"><h3 class="fs-5"><a href="single.html?nro=' +
-                        i +
-                        '" class="link-secondary">' +
-                        t.nombre +
-                        "</a></h3><p>" +
-                        t.abstract +
-                        "</p><small>#" +
-                        t.soporte +
-                        "</small></div></div></article>";
+                    donde.innerHTML += `<article class="col"><div class="card h-100 shadow-sm ${t.soporte}"><img src="${t.fotos[0]}" class="card-img-top"><div class="card-body"><h3 class="fs-5"><a href="single.html?nro=${i}" class="link-secondary">${t.nombre}</a></h3><p>${t.abstract}</p><small>#${t.soporte}</small></div></div></article>`;
                 });
             }
             portfolio().catch((error) => console.error(error));
